@@ -1,0 +1,11 @@
+dependencies {
+    // mysql 操作
+    implementation group: 'io.vertx', name: 'vertx-mysql-postgresql-client', version: '3.7.0'
+    implementation group: 'io.vertx', name: 'vertx-sql-common', version: '3.7.0'
+    implementation group: 'io.vertx', name: 'vertx-codegen', version: '4.0.0-milestone1'
+    // mongodb
+    implementation group: 'io.vertx', name: 'vertx-mongo-client', version: '4.0.0-milestone1'
+    //redis
+    implementation group: 'io.vertx', name: 'vertx-redis-client', version: '4.0.0-milestone1'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.0-alpha0'
+}

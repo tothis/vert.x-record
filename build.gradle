@@ -1,0 +1,44 @@
+buildscript { //脚本构建依赖
+    repositories {
+        // 本地maven仓库
+        mavenLocal()
+        maven { url = 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        // 和maven中央仓库一样的另一个依赖管理仓库 主要是java
+        jcenter()
+    }
+}
+plugins {
+    id 'java-library'
+}
+
+allprojects {
+    version = '1.0'
+    sourceCompatibility = 8
+    targetCompatibility = 8
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+}
+
+// subprojects所有子模块共享的配置
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'application'
+    // java编译的时候缺省状态下会因为中文字符而失败
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+    // 配置所有子模块的依赖仓库地址
+    repositories {
+        // 本地maven仓库
+        mavenLocal()
+        maven { url = 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        // 和maven中央仓库一样的另一个依赖管理仓库 主要是java
+        jcenter()
+    }
+    // 所有子模块共有依赖
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+        testCompile group: 'io.vertx', name: 'vertx-unit', version: '4.0.0-milestone1'
+    }
+}
+// 编译设置编码格式
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

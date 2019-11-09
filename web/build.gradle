@@ -1,0 +1,16 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '4.0.1'
+}
+mainClassName = 'io.vertx.core.Launcher' // <--启动器
+def mainVerticleName = 'com.example.MainVerticle' // <--add 程序主类
+shadowJar { // 打包
+    manifest { // <--add
+        attributes "Main-Verticle": mainVerticleName // 指定主类
+    }
+    mergeServiceFiles {
+        include 'META-INF/services/io.vertx.core.spi.VerticleFactory'
+    }
+}
+dependencies {
+    implementation group: 'io.vertx', name: 'vertx-web', version: '4.0.0-milestone1'
+}

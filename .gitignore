@@ -1,0 +1,14 @@
+# idea
+.idea
+
+# java
+.gradle
+*.class
+*.jar
+*.war
+
+# log
+*.log
+
+*/build
+*/out

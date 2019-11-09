@@ -1,0 +1,2 @@
+rootProject.name = 'vert.x-learn'
+include 'core','web','webclient','sql'
