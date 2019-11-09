@@ -14,7 +14,7 @@ public class Main {
         // deploy6(vertx);
     }
 
-    // Get请求
+    // get请求
     private static void deploy1(Vertx vertx) {
         // vertx.deployVerticle(GetVerticle.class.getName());
         vertx.deployVerticle(PostVerticle.class.getName());

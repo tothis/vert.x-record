@@ -10,14 +10,14 @@ public class PostVerticle extends AbstractVerticle {
     public void start() {
         WebClient client = WebClient.create(vertx);
         // post请求
-        client.post(8080, "localhost", "/sub02/test")
+        client.post(8080, "localhost", "/post/test")
                 .sendBuffer(Buffer.buffer("name"), ar -> { // 填充Buffer请求体
                     if (ar.succeeded()) System.out.println(ar.result().bodyAsString());
                 });
-        client.post(8080, "localhost", "/sub02/test")
+        client.post(8080, "localhost", "/post/test")
                 .sendJsonObject(new JsonObject() // 发送json请求体参数
-                        .put("firstName", "Dale")
-                        .put("lastName", "Cooper"), ar -> {
+                        .put("firstName", "li")
+                        .put("lastName", "lei"), ar -> {
                     if (ar.succeeded()) System.out.println(ar.result().bodyAsString());
                 });
     }

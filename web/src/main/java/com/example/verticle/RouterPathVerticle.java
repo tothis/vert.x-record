@@ -10,7 +10,7 @@ public class RouterPathVerticle extends AbstractVerticle {
         Router router = Router.router(vertx);
         vertx.createHttpServer().requestHandler(router::accept).listen(8080);
         router.route(HttpMethod.POST, "/pre/*"); // 匹配post请求 /pre/前缀的路径
-        router.route().pathRegex(".*foo"); //匹配正则路径
+        router.route().pathRegex(".*do"); //匹配正则路径
         // 可直接使用get方法创建route 且method匹配多种类型
         router.get("/some/path/").method(HttpMethod.POST).handler(routingContext -> {
         });
@@ -25,12 +25,12 @@ public class RouterPathVerticle extends AbstractVerticle {
             // 所有content-type消息头的值为text/html或text/plain的请求会调用这个处理器
         });
 
-        router.get("/some/path/B").handler(routingContext -> {
+        router.get("/some/path/xxxx").handler(routingContext -> {
             routingContext.response().end();
         });
 
         router.get("/some/path").handler(routingContext -> {
-            routingContext.reroute("/some/path/B"); // 转发 重新执行上一个处理器
+            routingContext.reroute("/some/path/xxxx"); // 转发 重新执行上一个处理器
         });
 
     }

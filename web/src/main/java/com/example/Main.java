@@ -22,7 +22,7 @@ public class Main {
 
     // 子路由
     private static void deploy2(Vertx vertx) {
-        vertx.deployVerticle(SubRouterVerticle.class.getName());
+        vertx.deployVerticle(TestRouterVerticle.class.getName());
     }
 
     //router

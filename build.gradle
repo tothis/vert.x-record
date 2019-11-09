@@ -1,3 +1,7 @@
+plugins {
+    id 'java-library'
+}
+
 buildscript { //脚本构建依赖
     repositories {
         // 本地maven仓库
@@ -6,9 +10,6 @@ buildscript { //脚本构建依赖
         // 和maven中央仓库一样的另一个依赖管理仓库 主要是java
         jcenter()
     }
-}
-plugins {
-    id 'java-library'
 }
 
 allprojects {
